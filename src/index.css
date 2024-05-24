@@ -33,13 +33,17 @@ p {
 }
 
 body {
-  font-family: "Abril Fatface", serif;
-  font-weight: 400;
   background: linear-gradient(to top, var(--sky-blue), var(--cloud-white));
-  height: 500vh;
+  color: #333;
+  font: 100% Arial, Sans Serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 }
 
 form {
@@ -49,9 +53,6 @@ form {
   border-radius: 1vmin;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-}
-
-form {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 1.25vmin;
@@ -124,11 +125,6 @@ p.error-message {
   text-align: center;
   color: black;
 }
-
-/* .card h4,
-.card p {
-  margin: 10px 0;
-} */
 
 nav {
   font-family: 'Baloo 2', sans-serif;
@@ -274,16 +270,6 @@ nav a:hover {
 
 .weather p {
   text-align: center;
-}
-
-body {
-  background: linear-gradient(to top, var(--sky-blue), var(--cloud-white));
-  color: #333;
-  font: 100% Arial, Sans Serif;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 #background-wrap {
