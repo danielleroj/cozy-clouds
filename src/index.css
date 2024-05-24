@@ -109,6 +109,32 @@ p.error-message {
   margin-top: 1vmin;
 }
 
+.weather-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather-entry p {
+  margin: 0 10px;
+}
+
+.weather-icon {
+  width: 30px; 
+  height: 30px; 
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.condition-icon {
+  display: flex;
+  align-items: center;
+}
+
+.condition-icon p {
+  margin: 0;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -121,9 +147,12 @@ p.error-message {
   border-radius: 15px;
   background-color: var(--baby-blue);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 250px;
   text-align: center;
   color: black;
+}
+
+.card-date {
+  letter-spacing: 2px;
 }
 
 nav {

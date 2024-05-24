@@ -1,6 +1,8 @@
 import { useState, useCallback } from "react";
 import { get5DayForecast } from "../../utilities/weather-api";
 
+const getIconUrl = (iconCode) => `http://openweathermap.org/img/wn/${iconCode}.png`;
+
 export default function WeeklyPage() {
     const [location, setlocation] = useState('');
     const [submittedLocation, setSubmittedLocation] = useState('');
@@ -19,7 +21,7 @@ export default function WeeklyPage() {
 
     return (
         <div>
-            <h2>5-Day Weather Forecast</h2>
+            <h2>5-Day Weather Forecast {submittedLocation ? ` for ${submittedLocation}` : ''}</h2>
             <input
                 type="text"
                 placeholder="Enter location"
@@ -30,17 +32,22 @@ export default function WeeklyPage() {
             {error && <p>{error}</p>}
             {forecast && (
                 <div>
-                <h3>5-Day Weather Forecast for {submittedLocation}</h3>
                 <div className="card-container">
                     {Object.keys(forecast).map((date, index) => (
                         <div className="card" key={index}>
-                            <h4>{date}</h4>
+                            <h4 className="card-date">{date}</h4>
                             {forecast[date].map((entry, subIndex) => (
-                                <div key={subIndex}>
-                                    <p>{new Date(entry.dt * 1000).toLocaleTimeString()}</p>
+                                <div key={subIndex} className="weather-entry">
+                                    <p>{new Date(entry.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>                                    
                                     <p>{entry.main.temp}°F</p>
+                                    <div className="condition-icon">
                                     <p>{entry.weather[0].description}</p>
-                                    <p>-</p>
+                                    <img
+                                        src={getIconUrl(entry.weather[0].icon)}
+                                        alt={entry.weather[0].description}
+                                        className="weather-icon"
+                                    />
+                                    </div>
                                 </div>
                                 ))}
                              </div>
