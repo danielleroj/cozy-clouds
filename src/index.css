@@ -127,6 +127,10 @@ p.error-message {
   vertical-align: middle;
 }
 
+.daily-weather-icon {
+  vertical-align: middle;
+}
+
 .condition-icon {
   display: flex;
   align-items: center;

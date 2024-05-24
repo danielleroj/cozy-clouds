@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { saveLocation } from '../../utilities/users-service'
 
+const getIconUrl = (iconCode) => `http://openweathermap.org/img/wn/${iconCode}.png`;
+
 export default function WeatherPage() {
     const [location, setLocation] = useState('');
     const [weather, setWeather] = useState(null);
@@ -48,7 +50,15 @@ export default function WeatherPage() {
                 <div className='weather-page-content'>
                     <h3>Weather in {weather.name}</h3>
                     <p>Temperature: {weather.temperature}°F</p>
-                    <p>Condition: {weather.description}</p>
+                    <div className="daily-condition-icon">
+                        <p>Condition: {weather.description}
+                            <img
+                                src={getIconUrl(weather.icon)}
+                                alt={weather.description}
+                                className="daily-weather-icon"
+                            />
+                        </p>
+                    </div>
                     <button onClick={handleSaveLocation}>Save Location</button>
                 </div>
             )}
