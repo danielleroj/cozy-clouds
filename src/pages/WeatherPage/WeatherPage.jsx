@@ -45,7 +45,7 @@ export default function WeatherPage() {
             {error && <p>{error}</p>}
             {message && <p>{message}</p>}
             {weather && (
-                <div className='weather'>
+                <div className='weather-page-content'>
                     <h3>Weather in {weather.name}</h3>
                     <p>Temperature: {weather.temperature}°F</p>
                     <p>Condition: {weather.description}</p>
