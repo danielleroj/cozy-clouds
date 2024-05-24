@@ -281,6 +281,15 @@ nav a:hover {
   overflow: hidden;
 }
 
+.weather-page-content {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
 .weather::before,
 .weather::after {
   content: '';
@@ -313,7 +322,7 @@ nav a:hover {
   animation: fadeIn 2s ease-in-out;
 }
 
-.weather p {
+.weather p, .weather-page-content p {
   text-align: center;
   color: var(--text-dark);
   font-size: 1.2rem; 
