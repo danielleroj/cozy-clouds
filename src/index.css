@@ -125,10 +125,10 @@ p.error-message {
   color: black;
 }
 
-.card h4,
+/* .card h4,
 .card p {
   margin: 10px 0;
-}
+} */
 
 nav {
   font-family: 'Baloo 2', sans-serif;
