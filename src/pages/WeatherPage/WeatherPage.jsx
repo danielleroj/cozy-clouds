@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { saveLocation } from '../../utilities/users-service'
 
-const getIconUrl = (iconCode) => `http://openweathermap.org/img/wn/${iconCode}.png`;
+const getIconUrl = (iconCode) => `https://openweathermap.org/img/wn/${iconCode}.png`;
 
 export default function WeatherPage() {
     const [location, setLocation] = useState('');

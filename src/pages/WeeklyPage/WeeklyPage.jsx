@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { get5DayForecast } from "../../utilities/weather-api";
 
-const getIconUrl = (iconCode) => `http://openweathermap.org/img/wn/${iconCode}.png`;
+const getIconUrl = (iconCode) => `https://openweathermap.org/img/wn/${iconCode}.png`;
 
 export default function WeeklyPage() {
     const [location, setlocation] = useState('');
