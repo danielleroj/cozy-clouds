@@ -62,7 +62,7 @@ export default function Dashboard() {
       {error && <p>{error}</p>}
       {weather && (
         <div>
-          <h3>Weather in {weather.name}</h3>
+          <h3>📍{weather.name}</h3>
           <p>Temperature: {weather.temperature}°F</p>
           <p>Condition: {weather.description}</p>
         </div>
