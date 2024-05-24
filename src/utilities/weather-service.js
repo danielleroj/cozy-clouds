@@ -21,7 +21,7 @@ async function fetchWeatherData(location) {
       throw new Error("Location not found");
     }
 
-    const { lat, lon } = geoResponse.data[0];
+    const { lat, lon, name } = geoResponse.data[0];
 
     const weatherResponse = await axios.get(apiUrl, {
       params: {
@@ -32,11 +32,12 @@ async function fetchWeatherData(location) {
       },
     });
 
-    const { main, weather, name } = weatherResponse.data;
+    const { main, weather } = weatherResponse.data;
     const temperature = main.temp;
     const description = weather[0].description;
+    const icon = weather[0].icon;
 
-    return { name, temperature, description };
+    return { name, temperature, description, icon };
   } catch (err) {
     throw new Error("Error fetching weather data");
   }
