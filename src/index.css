@@ -19,11 +19,12 @@
   padding: 0;
 }
 
-h1, h2, h3 {
+h1, h3 {
   font-family: "Poppins", sans-serif;
 }
 
 h2 {
+  font-family: "Baloo 2", sans-serif;
   color: #1e3a8a;
   font-size: 2rem;  
 }
@@ -275,8 +276,7 @@ nav a:hover {
   background-color: #ffffff;
   border-radius: 20px;
   padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
+  min-height: 380px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -290,15 +290,51 @@ nav a:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.weather h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, var(--sky-blue), var(--baby-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
+}
+
 .weather h2 {
   text-align: center;
-  color: #1e3a8a;
+  color: var(--text-dark);
   font-size: 2rem;
-  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: var(--baby-blue);
+  border-radius: 10px;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .weather p {
   text-align: center;
+  color: var(--text-dark);
+  font-size: 1.2rem; 
+  line-height: 1.6; 
+  margin: 10px 0; 
+  padding: 5px 10px; 
+  background-color: var(--cloud-white); 
+  border-radius: 5px; 
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); 
+  animation: fadeIn 2s ease-in-out; 
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #background-wrap {
