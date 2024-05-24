@@ -16,7 +16,13 @@ Cozy Clouds is a full-stack web weather app that allows users to view current we
 
 
 ## Screenshots
-**<p align=center>Coming Soon</p>**
+| Description | Screenshot |
+| --- | --- |
+| Log In/Sign Up | <div id="header" align="center"><img src="https://i.imgur.com/e5Dg0v8.png" width="800" height="400"></div> |
+| Dashboard | <div id="header" align="center"><img src="https://i.imgur.com/jjAiYPh.png" width="800" height="400"></div> |
+| Search Daily Weather | <div id="header" align="center"><img src="https://i.imgur.com/CZmaocj.png" width="800" height="400"></div> |
+| 5-Day Weather Forecast | <div id="header" align="center"><img src="https://i.imgur.com/U5S0oTE.png" width="800" height="400"></div> |
+| Saved Locations | <div id="header" align="center"><img src="https://i.imgur.com/wepVD3n.png" width="800" height="400"></div> |
 
 ## Technologies Used
 
