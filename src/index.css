@@ -26,7 +26,7 @@ h1, h3 {
 h2 {
   font-family: "Baloo 2", sans-serif;
   color: #1e3a8a;
-  font-size: 2rem;  
+  font-size: 2.5rem;  
 }
 
 p {
@@ -224,7 +224,6 @@ nav a:hover {
   box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
   border-radius: 100px;
   list-style: none;
-  padding: 10px;
   z-index: 1;
 }
 
@@ -267,12 +266,15 @@ nav a:hover {
   font-size: 0.8rem;
   border: none;
   cursor: pointer;
-  margin: 5px;
   outline: none;
 }
 
 .cloud-btn:hover {
   background: #e0f7fa;
+}
+
+.location-name {
+  text-transform: uppercase;
 }
 
 .weather {

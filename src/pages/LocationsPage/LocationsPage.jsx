@@ -53,6 +53,7 @@ export default function LocationsPage() {
     return (
         <div className="cloud-div">
             <h2>Saved Locations</h2>
+            <br />
             {error && <p>{error}</p>}
             {locations.length === 0 && !error ? (
                 <p>There are no saved locations.</p>
@@ -60,7 +61,7 @@ export default function LocationsPage() {
                 <ul>
                     {locations.map((location, index) => (
                         <li className="cloud" key={index}>
-                            {location}
+                            <h3 className="location-name">{location}</h3>
                             {weatherData[location] && (
                                 <div>
                                     <p>Temperature: {weatherData[location].temperature}°F</p>
