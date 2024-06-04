@@ -8,9 +8,11 @@ require("dotenv").config();
 require("./config/database");
 
 const app = express();
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000'
-}));
+app.use(
+    cors({
+        origin: process.env.FRONTEND_URL || "http://localhost:3000",
+    })
+);
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -26,9 +28,9 @@ app.use("/api/users", require("./routes/api/users"));
 app.use("/api/weather", require("./routes/api/weather"));
 
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(port, function () {
-  console.log(`Express app running on port ${port}`);
+    console.log(`Express app running on port ${port}`);
 });

@@ -148,19 +148,19 @@ p.error-message {
 }
 
 .card {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 15px;
-  background-color: var(--baby-blue);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  height: 169.5px;
-  min-width: 340px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--baby-blue);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 169.5px;
+    min-width: 340px;
 }
 
 .card-expanded {
