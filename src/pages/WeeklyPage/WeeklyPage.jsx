@@ -8,10 +8,8 @@ const filterForecastData = (data, toggledDays = {}) => {
 
     Object.keys(data).forEach(date => {
         if (toggledDays[date]) {
-            // If the date is toggled for hourly view, include all entries for that date
             filteredData[date] = data[date];
         } else {
-            // Otherwise, filter for 11 AM and 8 PM entries
             filteredData[date] = data[date].filter(entry => {
                 const hour = new Date(entry.dt * 1000).getHours();
                 return hour === 11 || hour === 20;
@@ -33,14 +31,11 @@ export default function WeeklyPage() {
         if (!loc) return;
         try {
             const forecastData = await get5DayForecast(loc);
-            console.log("Forecast Data:", forecastData); // Log the raw forecast data
             const filteredData = filterForecastData(forecastData, daysToggled);
-            console.log("Filtered Data:", filteredData); // Log the filtered forecast data
             setForecast(filteredData);
             setSubmittedLocation(loc);
             setError('');
         } catch (err) {
-            console.error("Error:", err); // Log the error
             setError('Error fetching forecast');
         }
     }, []);
