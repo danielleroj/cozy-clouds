@@ -36,7 +36,7 @@ p {
 body {
   background: linear-gradient(to top, var(--sky-blue), var(--cloud-white));
   color: #333;
-  font: 100% Arial, Sans Serif;
+  font-family: "Open Sans", sans-serif;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -215,25 +215,44 @@ nav a:hover {
 }
 
 .cloud {
-  position: relative;
   display: inline-block;
-  background: rgba(255, 255, 255, 0.5);
-  color: #1e3a8a;
-  padding: 40px 50px;
-  border-radius: 50px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  text-align: center;
-  font-size: 1rem;
+  position: relative;
+  margin: 70px 20px;
+  width: 350px;
+  height: 120px;
+  background: white;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  list-style: none;
+  padding: 10px;
+  z-index: 1;
 }
 
-.cloud::before,
-.cloud::after {
-  content: '';
+.cloud::after,
+.cloud::before {
+  content: "";
   position: absolute;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: inherit;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.cloud::after {
+  width: 100px;
+  height: 100px;
+  top: -40px;
+  left: 50px;
+}
+
+.cloud::before {
+  width: 180px;
+  height: 180px;
+  top: -70px;
+  left: 130px;
+}
+
+.cloud li {
+  padding: 10px 0;
 }
 
 .cloud-btn {
@@ -252,27 +271,8 @@ nav a:hover {
   outline: none;
 }
 
-.cloud-btn::before,
-.cloud-btn::after {
-  content: '';
-  position: absolute;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
 .cloud-btn:hover {
   background: #e0f7fa;
-}
-
-.cloud-div h2 {
-  text-align: center;
-  text-decoration: wavy;
-  color: #1e3a8a;
-  font-size: 2rem;
-  margin: 20px 0;
-  border: none;
 }
 
 .weather {
