@@ -39,13 +39,12 @@ export default function WeatherPage() {
             <h2>Search Weather by Location</h2>
             <input 
                 type="text"
-                placeholder='Enter location (City) or (City, State/Country)'
+                placeholder='Enter location'
                 value={location}
                 onChange={(e) => setLocation(e.target.value)} 
             />
             <button onClick={fetchWeather}>Get Weather</button>
             {error && <p>{error}</p>}
-            {message && <p>{message}</p>}
             {weather && (
                 <div className='weather-page-content'>
                     <h3>Weather in {weather.name}</h3>
@@ -56,12 +55,13 @@ export default function WeatherPage() {
                                 src={getIconUrl(weather.icon)}
                                 alt={weather.description}
                                 className="daily-weather-icon"
-                            />
+                                />
                         </p>
                     </div>
                     <button onClick={handleSaveLocation}>Save Location</button>
                 </div>
             )}
+            {message && <p className='message'>{message}</p>}
         </div>
     );
 }

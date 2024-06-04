@@ -26,7 +26,7 @@ h1, h3 {
 h2 {
   font-family: "Baloo 2", sans-serif;
   color: #1e3a8a;
-  font-size: 2rem;  
+  font-size: 2.5rem;  
 }
 
 p {
@@ -36,7 +36,7 @@ p {
 body {
   background: linear-gradient(to top, var(--sky-blue), var(--cloud-white));
   color: #333;
-  font: 100% Arial, Sans Serif;
+  font-family: "Open Sans", sans-serif;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -69,6 +69,7 @@ label {
 
 input {
   padding: 1vmin;
+  margin-right: 1vmin;
   font-size: 2vmin;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
@@ -148,16 +149,53 @@ p.error-message {
 
 .card {
   margin: 10px;
-  padding: 20px;
+  padding: 10px;
   border-radius: 15px;
   background-color: var(--baby-blue);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   color: black;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 169.5px;
+  min-width: 340px;
+}
+
+.card-expanded {
+  height: auto;
 }
 
 .card-date {
   letter-spacing: 2px;
+}
+
+
+.toggle-button {
+    margin-top: auto;
+    padding: 5px 15px;
+    color: var(--white);
+    background-color: var(--baby-blue);
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border: 0.1vmin solid var(--light-gray);
+    border-radius: 0.5vmin;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;
+    align-self: center;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 nav {
@@ -215,25 +253,43 @@ nav a:hover {
 }
 
 .cloud {
-  position: relative;
   display: inline-block;
-  background: rgba(255, 255, 255, 0.5);
-  color: #1e3a8a;
-  padding: 40px 50px;
-  border-radius: 50px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  text-align: center;
-  font-size: 1rem;
+  position: relative;
+  margin: 70px 20px;
+  width: 350px;
+  height: 120px;
+  background: white;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  list-style: none;
+  z-index: 1;
 }
 
-.cloud::before,
-.cloud::after {
-  content: '';
+.cloud::after,
+.cloud::before {
+  content: "";
   position: absolute;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: inherit;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.cloud::after {
+  width: 100px;
+  height: 100px;
+  top: -40px;
+  left: 50px;
+}
+
+.cloud::before {
+  width: 180px;
+  height: 180px;
+  top: -70px;
+  left: 130px;
+}
+
+.cloud li {
+  padding: 10px 0;
 }
 
 .cloud-btn {
@@ -248,31 +304,15 @@ nav a:hover {
   font-size: 0.8rem;
   border: none;
   cursor: pointer;
-  margin: 5px;
   outline: none;
 }
-
-.cloud-btn::before,
-.cloud-btn::after {
-  content: '';
-  position: absolute;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 
 .cloud-btn:hover {
   background: #e0f7fa;
 }
 
-.cloud-div h2 {
-  text-align: center;
-  text-decoration: wavy;
-  color: #1e3a8a;
-  font-size: 2rem;
-  margin: 20px 0;
-  border: none;
+.location-name {
+  text-transform: uppercase;
 }
 
 .weather {
@@ -328,7 +368,6 @@ nav a:hover {
 
 .weather p, .weather-page-content p {
   text-align: center;
-  color: var(--text-dark);
   font-size: 1.2rem; 
   line-height: 1.6; 
   margin: 10px 0; 
