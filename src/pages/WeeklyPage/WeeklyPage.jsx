@@ -20,6 +20,12 @@ const filterForecastData = (data, toggledDays = {}) => {
     return filteredData;
 };
 
+const getDayOfWeek = (timestamp) => {
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    const date = new Date(timestamp * 1000);
+    return daysOfWeek[date.getDay()];
+}
+
 export default function WeeklyPage() {
     const [location, setLocation] = useState('');
     const [submittedLocation, setSubmittedLocation] = useState('');
@@ -66,7 +72,7 @@ export default function WeeklyPage() {
                     <div className="card-container">
                         {Object.keys(forecast).map((date, index) => (
                             <div className={`card ${toggledDays[date] ? 'card-expanded' : ''}`} key={index}>
-                                <h3 className="card-date">{date}</h3>
+                                <h3 className="card-date">{`${getDayOfWeek(forecast[date][0].dt)} ${date}`}</h3>
                                 {forecast[date].map((entry, subIndex) => (
                                     <div key={subIndex} className="weather-entry">
                                         <p>{new Date(entry.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>                                    
