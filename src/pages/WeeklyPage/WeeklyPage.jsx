@@ -70,8 +70,8 @@ export default function WeeklyPage() {
                 <div>
                     <div className="card-container">
                         {Object.keys(forecast).map((date, index) => (
-                            <div className={`card ${toggledDays[date] ? 'card-expanded' : ''}`} key={index}>
-                                <h3 className="card-date">{date}</h3>
+                            <div className="card" key={index}>
+                                <h4 className="card-date">{date}</h4>
                                 {forecast[date].map((entry, subIndex) => (
                                     <div key={subIndex} className="weather-entry">
                                         <p>{new Date(entry.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>                                    
@@ -86,7 +86,7 @@ export default function WeeklyPage() {
                                         </div>
                                     </div>
                                 ))}
-                                <button onClick={() => handleToggleDayHourly(date)} className="toggle-button">
+                                <button onClick={() => handleToggleDayHourly(date)}>
                                     {toggledDays[date] ? "Show Day/Night" : "Show Hourly"}
                                 </button>
                             </div>
