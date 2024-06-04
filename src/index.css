@@ -69,6 +69,7 @@ label {
 
 input {
   padding: 1vmin;
+  margin-right: 1vmin;
   font-size: 2vmin;
   border: 0.1vmin solid var(--light-gray);
   border-radius: 0.5vmin;
@@ -158,6 +159,14 @@ p.error-message {
 
 .card-date {
   letter-spacing: 2px;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 nav {
@@ -330,7 +339,6 @@ nav a:hover {
 
 .weather p, .weather-page-content p {
   text-align: center;
-  color: var(--text-dark);
   font-size: 1.2rem; 
   line-height: 1.6; 
   margin: 10px 0; 
