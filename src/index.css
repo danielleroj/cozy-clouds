@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
 /* CSS Custom Properties for Weather Theme */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
   --sky-blue: #87ceeb;
   --baby-blue: #add8e6;
@@ -11,26 +12,13 @@
   --accent: var(--sky-blue);
 }
 
+/* Global Styles */
 *,
 *:before,
 *:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-h1, h3 {
-  font-family: "Poppins", sans-serif;
-}
-
-h2 {
-  font-family: "Baloo 2", sans-serif;
-  color: #1e3a8a;
-  font-size: 2.5rem;  
-}
-
-p {
-  font-family: "Open Sans", sans-serif;
 }
 
 body {
@@ -47,6 +35,21 @@ body {
   overflow-x: hidden;
 }
 
+h1, h3 {
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  font-family: "Baloo 2", sans-serif;
+  color: #1e3a8a;
+  font-size: 2.5rem;  
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Forms */
 form {
   padding: 3vmin;
   background: rgba(255, 255, 255, 0.9);
@@ -83,6 +86,7 @@ input:focus {
   box-shadow: 0 0 5px var(--accent);
 }
 
+/* Buttons */
 button {
   margin: 1vmin 0;
   padding: 1vmin;
@@ -111,101 +115,25 @@ p.error-message {
   margin-top: 1vmin;
 }
 
-/* .weather-info-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  text-align: center;
-} */
-
-.weather-entry {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.weather-entry p {
-  margin: 0 10px;
-}
-
-.weather-icon {
-  width: 30px; 
-  height: 30px; 
-  margin-left: 10px;
-  vertical-align: middle;
-}
-
-.daily-weather-icon {
-  vertical-align: middle;
-}
-
-.condition-icon {
-  display: flex;
-  align-items: center;
-}
-
-.condition-icon p {
-  margin: 0;
-}
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-    margin: 10px;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: var(--baby-blue);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    height: 169.5px;
-    min-width: 340px;
-}
-
-.card-expanded {
-  height: auto;
-}
-
-.card-date {
-  letter-spacing: 2px;
-}
-
-
 .toggle-button {
-    margin-top: auto;
-    padding: 5px 15px;
-    color: var(--white);
-    background-color: var(--baby-blue);
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    border: 0.1vmin solid var(--light-gray);
-    border-radius: 0.5vmin;
-    outline: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: auto;
-    align-self: center;
-}
-
-.message {
-  margin-top: 20px;
-  padding: 10px;
-  color: #fff;
-  border-radius: 5px;
+  margin-top: auto;
+  padding: 5px 15px;
+  color: var(--white);
+  background-color: var(--baby-blue);
+  font-size: 1rem;
   font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: 0.1vmin solid var(--light-gray);
+  border-radius: 0.5vmin;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: auto;
+  align-self: center;
 }
 
+/* NavBar */
 nav {
   font-family: 'Baloo 2', sans-serif;
   background-color: #add8e6;
@@ -249,9 +177,7 @@ nav a {
   color: #ffffff;
   text-decoration: none;
   padding: 0.5vmin 1vmin;
-  transition:
-    color 0.3s ease,
-    background-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
   border-radius: 0.5vmin;
 }
 
@@ -260,6 +186,69 @@ nav a:hover {
   color: #add8e6;
 }
 
+/* Weather Info */
+.weather-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather-entry p {
+  margin: 0 10px;
+}
+
+.weather-icon {
+  width: 30px; 
+  height: 30px; 
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.daily-weather-icon {
+  vertical-align: middle;
+}
+
+.condition-icon {
+  display: flex;
+  align-items: center;
+}
+
+.condition-icon p {
+  margin: 0;
+}
+
+/* Cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--baby-blue);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 169.5px;
+  min-width: 340px;
+}
+
+.card-expanded {
+  height: auto;
+}
+
+.card-date {
+  letter-spacing: 2px;
+}
+
+/* Collapsible Content */
 .collapsible-container {
   max-width: 600px;
   text-align: center;
@@ -275,6 +264,7 @@ nav a:hover {
   flex: 1 1 calc(50% - 20px);
 }
 
+/* Cloud Animation */
 .cloud {
   display: inline-block;
   position: relative;
@@ -334,6 +324,7 @@ nav a:hover {
   background: #e0f7fa;
 }
 
+/* Location and Weather Info */
 .location-name {
   text-transform: uppercase;
 }
@@ -374,7 +365,6 @@ nav a:hover {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   animation: fadeIn 2s ease-in-out;
-  animation: fadeIn 2s ease-in-out;
 }
 
 .weather h2 {
@@ -401,6 +391,7 @@ nav a:hover {
   animation: fadeIn 2s ease-in-out; 
 }
 
+/* Keyframes */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -422,8 +413,7 @@ nav a:hover {
   z-index: -1;
 }
 
-/* KEYFRAMES */
-
+/* Cloud Animation Keyframes */
 @-webkit-keyframes animateCloud {
   0% {
     margin-left: -1000px;
@@ -504,8 +494,7 @@ nav a:hover {
   transform: scale(0.55);
 }
 
-/* OBJECTS */
-
+/* Cloud Design */
 .cloud-d {
   background: #fff;
   background: -moz-linear-gradient(top, #fff 5%, #f1f1f1 100%);
@@ -534,7 +523,7 @@ nav a:hover {
   background: #fff;
   content: '';
   position: absolute;
-  z-indeX: -1;
+  z-index: -1;
 }
 
 .cloud-d:after {
