@@ -67,11 +67,12 @@ export default function Dashboard() {
                 <div>
                     <h3>📍{weather.name}</h3>
                     <p>Temperature: {weather.main.temp}°F</p>
-                    <p>
+                    <p className="current-condition-icon">
                         Condition: {weather.weather[0].description}
                         <img
                             src={getIconUrl(weather.weather[0].icon)}
                             alt={weather.weather[0].description}
+                            className="current-weather-icon"
                         />
                     </p>
                     <Collapsible title="More Info">

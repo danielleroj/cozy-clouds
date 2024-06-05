@@ -217,6 +217,16 @@ nav a:hover {
   margin: 0;
 }
 
+.current-weather-icon {
+  width: 40px; 
+}
+
+.current-condition-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Cards */
 .card-container {
   display: flex;
