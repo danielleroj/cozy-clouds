@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as userService from '../../utilities/users-service';
 
+const getIconUrl = (iconCode) => `https://openweathermap.org/img/wn/${iconCode}.png`;
 
 export default function Dashboard() {
   const [weather, setWeather] = useState(null);
@@ -18,14 +19,12 @@ export default function Dashboard() {
         setError('Error fetching user data');
       }
     };
-    // Function to fetch weather data based on user's current location
     const fetchCurrentLocationWeather = async () => {
-      if ("geolocation" in navigator) { // Check if geolocation is supported by the browser
+      if ("geolocation" in navigator) { 
         navigator.geolocation.getCurrentPosition(
           async (position) => {
             const { latitude, longitude } = position.coords;
             try {
-              // Fetch weather data using the coordinates
               const apiUrl = process.env.REACT_APP_API_URL;
               const response = await fetch(`${apiUrl}/api/weather/current?lat=${latitude}&lon=${longitude}`);
               if (!response.ok) throw new Error('Error fetching data');
@@ -55,18 +54,29 @@ export default function Dashboard() {
 
   return (
     <div className="weather">
-      <h1>Welcome, {user ? user.name : 'Guest'}</h1>
-      <br />
-      <h2>Current Location Weather</h2>
-      {loading && <p>Searching for your location...</p>}
-      {error && <p>{error}</p>}
-      {weather && (
+        <h1>Welcome, {user ? user.name : 'Guest'}</h1>
+        <br />
+        <h2>Current Location Weather</h2>
+        {loading && <p>Searching for your location...</p>}
+        {error && <p>{error}</p>}
+        {weather && (
         <div>
           <h3>📍{weather.name}</h3>
-          <p>Temperature: {weather.temperature}°F</p>
-          <p>Condition: {weather.description}</p>
+          <p>Temperature: {weather.main.temp}°F</p>
+          <p>Feels Like: {weather.main.feels_like}°F</p>
+            <p>
+                Condition: {weather.weather[0].description}
+                <img src={getIconUrl(weather.weather[0].icon)} alt={weather.weather[0].description} />
+            </p>
+            <p>Humidity: {weather.main.humidity}%</p>
+            <p>Wind: {weather.wind.speed} mph at {weather.wind.deg}°</p>
+            <p>Pressure: {weather.main.pressure} hPa</p>
+            <p>Cloudiness: {weather.clouds.all}%</p>
+            <p>Visibility: {weather.visibility} meters</p>
+            <p>Sunrise: {new Date(weather.sys.sunrise * 1000).toLocaleTimeString()}</p>
+            <p>Sunset: {new Date(weather.sys.sunset * 1000).toLocaleTimeString()}</p>
         </div>
-      )}
+        )}
     </div>
-  );
+    );
 }
