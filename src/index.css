@@ -111,6 +111,14 @@ p.error-message {
   margin-top: 1vmin;
 }
 
+/* .weather-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+} */
+
 .weather-entry {
   display: flex;
   align-items: center;
@@ -250,6 +258,21 @@ nav a {
 nav a:hover {
   background-color: #ffffff;
   color: #add8e6;
+}
+
+.collapsible-container {
+  max-width: 600px;
+  text-align: center;
+}
+
+.collapsible-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.collapsible-content p {
+  flex: 1 1 calc(50% - 20px);
 }
 
 .cloud {

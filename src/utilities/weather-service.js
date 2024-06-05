@@ -54,9 +54,10 @@ async function fetchWeatherDataByCoords(lat, lon) {
             },
         });
 
-        const { main, weather, wind, clouds, visibility, sys, name } = weatherResponse.data;
+        const { main, weather, wind, visibility, sys, name } =
+            weatherResponse.data;
 
-        return { name, main, weather, wind, clouds, visibility, sys };
+        return { name, main, weather, wind, visibility, sys };
     } catch (err) {
         throw new Error("Error fetching weather data");
     }

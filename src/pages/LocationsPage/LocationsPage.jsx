@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { getSavedLocations, deleteLocation } from "../../utilities/users-service";
+import {
+    getSavedLocations,
+    deleteLocation,
+} from "../../utilities/users-service";
 import sendRequest from "../../utilities/send-request";
 
 export default function LocationsPage() {
     const [locations, setLocations] = useState([]);
     const [weatherData, setWeatherData] = useState({});
-    const [error, setError] = useState('');
+    const [error, setError] = useState("");
 
     useEffect(() => {
         const fetchSavedLocations = async () => {
@@ -13,9 +16,9 @@ export default function LocationsPage() {
                 const savedLocations = await getSavedLocations();
                 setLocations(savedLocations);
                 fetchWeatherData(savedLocations);
-                setError('');
+                setError("");
             } catch (err) {
-                setError('Error fetching saved locations');
+                setError("Error fetching saved locations");
             }
         };
 
@@ -24,29 +27,33 @@ export default function LocationsPage() {
 
     const fetchWeatherData = async (locations) => {
         try {
-            const weatherDataResponse = await sendRequest('/api/weather/multiple', 'POST', { locations });
+            const weatherDataResponse = await sendRequest(
+                "/api/weather/multiple",
+                "POST",
+                { locations }
+            );
             const weatherDataMap = {};
             locations.forEach((location, index) => {
                 weatherDataMap[location] = weatherDataResponse[index];
             });
             setWeatherData(weatherDataMap);
         } catch (err) {
-            setError('Error fetching weather data');
+            setError("Error fetching weather data");
         }
     };
 
     const handleDeleteLocation = async (location) => {
         try {
             await deleteLocation(location);
-            setLocations(locations.filter(loc => loc !== location));
-            setWeatherData(prev => {
+            setLocations(locations.filter((loc) => loc !== location));
+            setWeatherData((prev) => {
                 const updatedData = { ...prev };
                 delete updatedData[location];
                 return updatedData;
             });
-            setError('');
+            setError("");
         } catch (err) {
-            setError('Error deleting location');
+            setError("Error deleting location");
         }
     };
 
@@ -64,11 +71,22 @@ export default function LocationsPage() {
                             <h3 className="location-name">{location}</h3>
                             {weatherData[location] && (
                                 <div>
-                                    <p>Temperature: {weatherData[location].temperature}°F</p>
-                                    <p>Condition: {weatherData[location].description}</p>
+                                    <p>
+                                        Temperature:{" "}
+                                        {weatherData[location].temperature}°F
+                                    </p>
+                                    <p>
+                                        Condition:{" "}
+                                        {weatherData[location].description}
+                                    </p>
                                 </div>
                             )}
-                            <button className="cloud-btn" onClick={() => handleDeleteLocation(location)}>Delete</button>
+                            <button
+                                className="cloud-btn"
+                                onClick={() => handleDeleteLocation(location)}
+                            >
+                                Delete
+                            </button>
                         </li>
                     ))}
                 </ul>
